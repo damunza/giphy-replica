@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import {Http, Response} from '@angular/http';//thursday
+// import {Http, Response} from '@angular/http';//thursday
 
 import {environment} from '../../environments/environment'
 
@@ -10,7 +10,7 @@ import {environment} from '../../environments/environment'
 })
 export class GiphyRequestService {
 // http: HttpClient; // thursday
-gif$
+giph$
 
 constructor(private http: HttpClient){
     // this.http = http; //thursday
@@ -21,9 +21,10 @@ constructor(private http: HttpClient){
 
   giphyrequest(searchItem: HTMLInputElement):void{
     // console.log(${searchItem.value});
-    return this.http.get(environment.apiUrl).subscribe(data=>{
-    this.gif$=data.data;
-    console.log(this.gif$)
+    var link= environment.apiUrl + searchItem.value
+    return this.http.get(link).subscribe(data=>{
+    this.giphy$=data.data;
+    console.log(this.giphy$)
   });
   });
 

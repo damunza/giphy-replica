@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:"http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=QqgBonqKBipnXU0gRrIuoXuwLc1rT4AK&limit=30"
+  apiUrl:"http://api.giphy.com/v1/gifs/search?api_key=QqgBonqKBipnXU0gRrIuoXuwLc1rT4AK&limit=30"
 };
 
 /*

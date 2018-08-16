@@ -11,8 +11,19 @@ import {HttpClient} from '@angular/common/http'
 })
 export class GiphyComponent implements OnInit {
   giphy$: string[],
-  public giphs,
+  link ='http://api.giphy.com/v1/gifs/search?api_key=QqgBonqKBipnXU0gRrIuoXuwLc1rT4AK&q=';
+  // public giphs,
   constructor(public giphyrequest: GiphyRequestService, private http:HttpClient){} //second trial
+
+//entering the search function
+giphysearch(searchItem: HTMLInputElement):void{
+
+  var apiLink= this.link + searchItem.value
+   this.http.get(apiLink).subscribe((res:Response)=>{
+  this.giphy$=res['data'];
+  console.log(this.giphy$);
+});
+}
 
   ngOnInit() {
 
@@ -21,10 +32,10 @@ export class GiphyComponent implements OnInit {
       console.log(this.giphy$)
 
   })
-  this.giphyrequest.giphyrequest().subscribe(function(data){
-    this.giphs = data;
-    console.log(this.giphs.data[0].embed_url)
-  })
+  // this.giphyrequest.giphyrequest().subscribe(function(data){
+  //   this.giphs = data;
+  //   console.log(this.giphs.data[0].embed_url)
+  // })
 }
 }
 
