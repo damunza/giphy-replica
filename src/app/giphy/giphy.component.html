@@ -1,0 +1,11 @@
+<input type="text" id="search" #searchItem placeholder="search gif">
+<!-- {{giphs.data.id}} -->
+<button type="submit" id="searchgif" (click)=giphyrequest(searchItem)>search</button>
+
+<div class="search">
+  <img *ngFor='let gif of giphs, let i=index' src="{{giphs[i].images.downsized.url}}" alt="">
+</div>
+
+<div class="trending">
+  <img *ngFor='let gif of giphy$, let i=index' src="{{giphy$[i].images.preview_gif.url}}" alt="">
+</div>
