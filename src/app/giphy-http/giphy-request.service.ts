@@ -10,7 +10,7 @@ import {environment} from '../../environments/environment'
 })
 export class GiphyRequestService {
 // http: HttpClient; // thursday
-
+gif$
 
 constructor(private http: HttpClient){
     // this.http = http; //thursday
@@ -19,9 +19,12 @@ constructor(private http: HttpClient){
 //   return this.http.get('http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=QqgBonqKBipnXU0gRrIuoXuwLc1rT4AK&limit=30')
 // }
 
-  giphyrequest(){
+  giphyrequest(searchItem: HTMLInputElement):void{
     // console.log(${searchItem.value});
-    return this.http.get(environment.apiUrl);
+    return this.http.get(environment.apiUrl).subscribe(data=>{
+    this.gif$=data.data;
+    console.log(this.gif$)
+  });
   });
 
   }
